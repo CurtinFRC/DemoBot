@@ -9,6 +9,14 @@
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SendableChooser.h>
 
+#include <ctre/Phoenix.h>
+
+#include <frc/XboxController.h>
+
+#include <frc/DoubleSolenoid.h>
+
+#include <frc/Compressor.h>
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -27,4 +35,27 @@ class Robot : public frc::TimedRobot {
   const std::string kAutoNameDefault = "Default";
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
+
+  WPI_TalonSRX *shooterMotor1;
+  WPI_TalonSRX *shooterMotor2;
+
+  WPI_VictorSPX *intakeMotor;
+
+  WPI_TalonSRX *DrivebaseLeft1;
+  WPI_TalonSRX *DrivebaseLeft2;
+  WPI_TalonSRX *DrivebaseLeft3;
+
+  WPI_TalonSRX *DrivebaseRight1;
+  WPI_TalonSRX *DrivebaseRight2;
+  WPI_TalonSRX *DrivebaseRight3;
+
+
+  frc::XboxController *driver;
+  frc::XboxController *codriver;
+
+  frc::DoubleSolenoid *drivebaseSpeedToggle;
+  frc::Compressor *compressor;
+
+  bool isFast = false;
+
 };
